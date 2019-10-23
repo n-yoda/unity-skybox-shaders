@@ -372,7 +372,7 @@ SubShader {
 				half3 center = round(pos);
 				half hash = dot(_StarsHash.xyz, center) % _StarsHash.w;
 				half threshold = _StarsHash.w * _StarsDensity;
-				if (hash < threshold)
+				if (abs(hash) < threshold)
 				{
 					half dist = length(pos - center);
 					half star = saturate(pow(saturate(0.5 - dist * dist) * 2, 14));
